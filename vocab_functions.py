@@ -18,10 +18,10 @@ def get_local_copy_of_dictionary():
     line_elements[4] = line_elements[4][:-1] # get rid of newline
 
     # There may be more than one definition for a word
-    if line_elements[0] not in local_copy:
-      local_copy[line_elements[0]] = [] # Initialize entry
+    if line_elements[0].replace('*^*', ',') not in local_copy:
+      local_copy[line_elements[0].replace('*^*', ',')] = [] # Initialize entry
     
-    local_copy[line_elements[0]].append([line_elements[1], line_elements[2], line_elements[3], line_elements[4]])
+    local_copy[line_elements[0].replace('*^*', ',')].append([line_elements[1].replace('*^*', ','), line_elements[2].replace('*^*', ','), line_elements[3], line_elements[4]])
 
   # Close file
   f.close()
@@ -64,7 +64,8 @@ def insert_new_word (word, definition, example_phrase):
   
   for entry in sorted(local_copy):
     for definition in local_copy[entry]:
-      f.write(entry + ',' + definition[0] + ',' + definition[1] + ',' + str(definition[2]) + ',' + str(definition[3]) + '\n') # START HERE
+      # Comma handling occurs here.
+      f.write(entry.replace(',', '*^*') + ',' + definition[0].replace(',', '*^*') + ',' + definition[1].replace(',', '*^*') + ',' + str(definition[2]) + ',' + str(definition[3]) + '\n') # START HERE
 
   f.close()
 
@@ -93,20 +94,17 @@ def test_word(word, entry):
     print('The word is \'' + word + '\' and ' + str(number_of_definitions) + ' definitions will be tested.' + '\n\n')
 
   for definition in entry:
-    print('Define \'' + word + '\', as in \'' + definition[1] + '\'. Press enter to read the answer.')
-    input()
+    input('Define \'' + word + '\', as in \'' + definition[1] + '\'. Press enter to read the answer.')
 
     print('****\'' + word + '\' means \'' + definition[0] + '\'.****')
-    print('Did you get it right? Be honest. Enter \'y\' if you did, or \'n\' if you didn\'t.')
-    result = input()
+    result = input('Did you get it right? Be honest. Enter \'y\' if you did, or \'n\' if you didn\'t.')
 
     if result == 'y':
       definition[3] = str(int(definition[3]) + 1)
     elif result == 'n':
       definition[3] = 0
     else:
-      print('I didn\'t understand your input. Please type \'y\' or \'n\'.')
-      result = input()
+      result = input('I didn\'t understand your input. Please type \'y\' or \'n\'.')
 
       if result == 'y':
         definition[3] = str(int(definition[3]) + 1)
@@ -165,11 +163,28 @@ def test_words(number_to_test = -1):
   f.close()
 
 def prompt_user_for_new_entry():
-  print('Please enter the German word.')
-  word = input()
-  print('Please enter its definition.')
-  definition = input()
-  print('Please enter an example phrase.')
-  example_phrase = input()
+  word = input('Please enter the German word.')
+  definition = input('Please enter its definition.')
+  example_phrase = input('Please enter an example phrase.')
 
   insert_new_word(word, definition, example_phrase)
+
+def summarize_vocabulary():
+  local_copy = get_local_copy_of_dictionary()
+
+  day_dict = {}
+
+  # Get summary
+  for entry in local_copy:
+    for definition in local_copy[entry]:
+      if definition[3] not in day_dict:
+        day_dict[definition[3]] = 0
+      day_dict[definition[3]] += 1
+
+  # Print summary
+  print('\n------------------------')
+  print ('Days','\t', '# of words')
+
+  for day in sorted(day_dict):
+    print (day, '\t', day_dict[day])
+  print('------------------------')
