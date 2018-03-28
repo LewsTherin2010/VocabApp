@@ -24,9 +24,12 @@ while user_input != '9':
   elif user_input == '4':
     print('******************** TEST GRAMMAR MENU *********************')
     print('1. Declension of definite article')
+    print('2. Declension of indefinite article')
     print('************************************************************')
       
     grammar_test_input = input()
 
     if grammar_test_input == '1':
       test_definite_article()
+    if grammar_test_input == '2':
+      test_indefinite_article()

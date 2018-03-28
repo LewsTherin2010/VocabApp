@@ -181,13 +181,26 @@ def summarize_vocabulary():
         day_dict[definition[3]] = 0
       day_dict[definition[3]] += 1
 
+  # Get total number
+  total_number = 0
+  for day in day_dict:
+    total_number += day_dict[day]
+
+  # Get average words tested per day
+  average_words_tested_per_day = 0.0
+  for day in day_dict:
+    denominator = (float(day) if int(day) != 0 else 1.0)
+    average_words_tested_per_day += float(day_dict[day])/denominator
+
   # Print summary
-  print('\n------------------------')
+  print('\n------------------------------------')
+  print('The total number of words is ' + str(total_number) + '.')
+  print('Average words tested per day is ' + str(int(round(average_words_tested_per_day, 0))) + '.\n')
   print ('Days','\t', '# of words')
 
   for day in sorted(day_dict):
     print (day, '\t', day_dict[day])
-  print('------------------------')
+  print('------------------------------------')
 
 def test_definite_article():
   masculine_nominative = input('Enter the masculine nominative form: ')
@@ -278,3 +291,72 @@ def test_definite_article():
 
   print ('\n')
   print('You got ' + str(int(score)) + ' correct out of 16, for a score of ' + str(int(score/16.0 * 100)) + '%.')
+
+def test_indefinite_article():
+  masculine_nominative = input('Enter the masculine nominative form: ')
+  masculine_genitive = input('... masculine genitive form: ')
+  masculine_dative = input('... masculine dative ...: ')
+  masculine_accusative = input('Masculine accusative: ')
+  
+  feminine_nominative = input('Feminine nominative: ')
+  feminine_genitive = input('Feminine genitive: ')
+  feminine_dative = input('Feminine dative: ')
+  feminine_accusative = input('Feminine accusative: ')
+
+  neuter_nominative = input('Neuter nominative: ')
+  neuter_genitive = input('Neuter genitive: ')
+  neuter_dative = input('Neuter dative: ')
+  neuter_accusative = input('Neuter accusative: ')
+
+  score = 12.0
+
+  if masculine_nominative != 'ein':
+    print('The masculine nominative form is "ein". You entered "' + masculine_nominative + '".')
+    score -= 1.0
+
+  if masculine_genitive != 'eines':
+    print('The masculine genitive form is "eines". You entered "' + masculine_genitive + '".')
+    score -= 1.0
+
+  if masculine_dative != 'einem':
+    print('The masculine dative form is "einem". You entered "' + masculine_dative + '".')
+    score -= 1.0
+
+  if masculine_accusative != 'einen':
+    print('The masculine accusative form is "einen". You entered "' + masculine_accusative + '".')
+    score -= 1.0
+
+  if feminine_nominative != 'eine':
+    print('The feminine nominative form is "eine". You entered "' + feminine_nominative + '".')
+    score -= 1.0
+
+  if feminine_genitive != 'einer':
+    print('The feminine genitive form is "einer". You entered "' + feminine_genitive + '".')
+    score -= 1.0
+
+  if feminine_dative != 'einer':
+    print('The feminine dative form is "einer". You entered "' + feminine_dative + '".')
+    score -= 1.0
+
+  if feminine_accusative != 'eine':
+    print('The feminine accusative form is "eine". You entered "' + feminine_accusative + '".')
+    score -= 1.0
+
+  if neuter_nominative != 'ein':
+    print('The neuter nominative form is "ein". You entered "' + neuter_nominative + '".')
+    score -= 1.0
+
+  if neuter_genitive != 'eines':
+    print('The neuter genitive form is "eines". You entered "' + neuter_genitive + '".')
+    score -= 1.0
+
+  if neuter_dative != 'einem':
+    print('The neuter dative form is "einem". You entered "' + neuter_dative + '".')
+    score -= 1.0
+
+  if neuter_accusative != 'ein':
+    print('The neuter accusative form is "ein". You entered "' + neuter_accusative + '".')
+    score -= 1.0
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 12, for a score of ' + str(int(score/12.0 * 100)) + '%.')
