@@ -3,6 +3,92 @@ import sys
 sys.path.append('.\\')
 
 from vocab_functions import *
+from grammar_functions import *
+
+# *******************************************************************
+# *************************** MENU FUNCTIONS ************************
+# *******************************************************************
+
+def test_grammar():
+  grammar_test_input = -1
+  while grammar_test_input != '99':
+
+    print('******************** TEST GRAMMAR MENU *********************')
+    print('1. Declension of definite article')
+    print('2. Declension of indefinite article')
+    print('3. Past tense of weak verbs')
+    print('4. "sein"')
+    print('5. "haben"')
+    print('6. "werden"')
+    print('99. Go back')
+    print('************************************************************')
+      
+    grammar_test_input = input()
+
+    if grammar_test_input == '1':
+      test_definite_article()
+    if grammar_test_input == '2':
+      test_indefinite_article()
+    if grammar_test_input == '3':
+      test_weak_verb_past_tense()
+    if grammar_test_input == '4':
+      test_sein()
+    if grammar_test_input == '5':
+      test_haben()
+    if grammar_test_input == '6':
+      test_werden()
+
+def test_sein():
+  test_sein_input = -1
+  while test_sein_input != '99':
+    print('******************** TEST "SEIN" MENU *********************')
+    print('1. Present tense')
+    print('2. Past tense')
+    print('99. Go back')
+    print('************************************************************')
+    
+    test_sein_input = input()
+
+    if test_sein_input == '1':
+      test_present_tense_sein()
+    if test_sein_input == '2':
+      test_past_tense_sein()
+
+def test_haben():
+  test_haben_input = -1
+  while test_haben_input != '99':
+    print('******************** TEST "HABEN" MENU *********************')
+    print('1. Present tense')
+    print('2. Past tense')
+    print('99. Go back')
+    print('************************************************************')
+    
+    test_haben_input = input()
+
+    if test_haben_input == '1':
+      test_present_tense_haben()
+    if test_haben_input == '2':
+      test_past_tense_haben()
+
+def test_werden():
+  test_werden_input = -1
+  while test_werden_input != '99':
+    print('******************** TEST "WERDEN" MENU *********************')
+    print('1. Present tense')
+    print('2. Past tense')
+    print('99. Go back')
+    print('*************************************************************')
+    
+    test_werden_input = input()
+
+    if test_werden_input == '1':
+      test_present_tense_werden()
+    if test_werden_input == '2':
+      test_past_werden_haben()
+
+# *******************************************************************
+# *************************** MAIN LOOP *****************************
+# *******************************************************************
 
 user_input = -1
 while user_input != '9':
@@ -22,14 +108,4 @@ while user_input != '9':
   elif user_input == '3':
     summarize_vocabulary()
   elif user_input == '4':
-    print('******************** TEST GRAMMAR MENU *********************')
-    print('1. Declension of definite article')
-    print('2. Declension of indefinite article')
-    print('************************************************************')
-      
-    grammar_test_input = input()
-
-    if grammar_test_input == '1':
-      test_definite_article()
-    if grammar_test_input == '2':
-      test_indefinite_article()
+    test_grammar()

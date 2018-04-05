@@ -173,12 +173,29 @@ def summarize_vocabulary():
   local_copy = get_local_copy_of_dictionary()
 
   day_dict = {}
+  words_to_test = 0
+  words_to_test_tomorrow = 0
+  words_to_test_the_day_after = 0
+  one_day = 60 * 60 * 24
 
   # Get summary
   for entry in local_copy:
     for definition in local_copy[entry]:
       if definition[3] not in day_dict:
         day_dict[definition[3]] = 0
+
+      # Get actual words to test right now
+      if int(float(definition[2])) + (one_day * int(definition[3])) < time.time():
+        words_to_test += 1
+
+      # Get actual words to test tomorrow (Not actually this simple.)
+      if int(float(definition[2])) + (one_day * int(definition[3])) < time.time() + one_day:
+        words_to_test_tomorrow += 1
+
+      # Get actual words to test tomorrow (Not actually this simple.)
+      if int(float(definition[2])) + (one_day * int(definition[3])) < time.time() + one_day * 2:
+        words_to_test_the_day_after += 1
+
       day_dict[definition[3]] += 1
 
   # Get total number
@@ -195,168 +212,13 @@ def summarize_vocabulary():
   # Print summary
   print('\n------------------------------------')
   print('The total number of words is ' + str(total_number) + '.')
-  print('Average words tested per day is ' + str(int(round(average_words_tested_per_day, 0))) + '.\n')
-  print ('Days','\t', '# of words')
+  print('Average words tested per day is ' + str(int(round(average_words_tested_per_day, 0))) + '.')
+  print('Actual words to test is ' + str(words_to_test) + '.')
+  print('Actual words to test tomorrow is ' + str(words_to_test_tomorrow) + '.')
+  print('Actual words to test the day after is ' + str(words_to_test_the_day_after) + '.\n')
+
+  print('Days','\t', '# of words')
 
   for day in sorted(day_dict):
     print (day, '\t', day_dict[day])
   print('------------------------------------')
-
-def test_definite_article():
-  masculine_nominative = input('Enter the masculine nominative form: ')
-  masculine_genitive = input('... masculine genitive form: ')
-  masculine_dative = input('... masculine dative ...: ')
-  masculine_accusative = input('Masculine accusative: ')
-  
-  feminine_nominative = input('Feminine nominative: ')
-  feminine_genitive = input('Feminine genitive: ')
-  feminine_dative = input('Feminine dative: ')
-  feminine_accusative = input('Feminine accusative: ')
-
-  neuter_nominative = input('Neuter nominative: ')
-  neuter_genitive = input('Neuter genitive: ')
-  neuter_dative = input('Neuter dative: ')
-  neuter_accusative = input('Neuter accusative: ')
-
-  plural_nominative = input('Plural nominative: ')
-  plural_genitive = input('Plural genitive: ')
-  plural_dative = input('Plural dative: ')
-  plural_accusative = input('Plural accusative: ')
-
-  score = 16.0
-
-  if masculine_nominative != 'der':
-    print('The masculine nominative form is "der". You entered "' + masculine_nominative + '".')
-    score -= 1.0
-
-  if masculine_genitive != 'des':
-    print('The masculine genitive form is "des". You entered "' + masculine_genitive + '".')
-    score -= 1.0
-
-  if masculine_dative != 'dem':
-    print('The masculine dative form is "dem". You entered "' + masculine_dative + '".')
-    score -= 1.0
-
-  if masculine_accusative != 'den':
-    print('The masculine accusative form is "den". You entered "' + masculine_accusative + '".')
-    score -= 1.0
-
-  if feminine_nominative != 'die':
-    print('The feminine nominative form is "die". You entered "' + feminine_nominative + '".')
-    score -= 1.0
-
-  if feminine_genitive != 'der':
-    print('The feminine genitive form is "der". You entered "' + feminine_genitive + '".')
-    score -= 1.0
-
-  if feminine_dative != 'der':
-    print('The feminine dative form is "der". You entered "' + feminine_dative + '".')
-    score -= 1.0
-
-  if feminine_accusative != 'die':
-    print('The feminine accusative form is "die". You entered "' + feminine_accusative + '".')
-    score -= 1.0
-
-  if neuter_nominative != 'das':
-    print('The neuter nominative form is "das". You entered "' + neuter_nominative + '".')
-    score -= 1.0
-
-  if neuter_genitive != 'des':
-    print('The neuter genitive form is "des". You entered "' + neuter_genitive + '".')
-    score -= 1.0
-
-  if neuter_dative != 'dem':
-    print('The neuter dative form is "dem". You entered "' + neuter_dative + '".')
-    score -= 1.0
-
-  if neuter_accusative != 'das':
-    print('The neuter accusative form is "das". You entered "' + neuter_accusative + '".')
-    score -= 1.0
-
-  if plural_nominative != 'die':
-    print('The plural nominative form is "die". You entered "' + plural_nominative + '".')
-    score -= 1.0
-
-  if plural_genitive != 'der':
-    print('The plural genitive form is "der". You entered "' + plural_genitive + '".')
-    score -= 1.0
-
-  if plural_dative != 'den':
-    print('The plural dative form is "den". You entered "' + plural_dative + '".')
-    score -= 1.0
-
-  if plural_accusative != 'die':
-    print('The plural accusative form is "die". You entered "' + plural_accusative + '".')
-    score -= 1.0
-
-  print ('\n')
-  print('You got ' + str(int(score)) + ' correct out of 16, for a score of ' + str(int(score/16.0 * 100)) + '%.')
-
-def test_indefinite_article():
-  masculine_nominative = input('Enter the masculine nominative form: ')
-  masculine_genitive = input('... masculine genitive form: ')
-  masculine_dative = input('... masculine dative ...: ')
-  masculine_accusative = input('Masculine accusative: ')
-  
-  feminine_nominative = input('Feminine nominative: ')
-  feminine_genitive = input('Feminine genitive: ')
-  feminine_dative = input('Feminine dative: ')
-  feminine_accusative = input('Feminine accusative: ')
-
-  neuter_nominative = input('Neuter nominative: ')
-  neuter_genitive = input('Neuter genitive: ')
-  neuter_dative = input('Neuter dative: ')
-  neuter_accusative = input('Neuter accusative: ')
-
-  score = 12.0
-
-  if masculine_nominative != 'ein':
-    print('The masculine nominative form is "ein". You entered "' + masculine_nominative + '".')
-    score -= 1.0
-
-  if masculine_genitive != 'eines':
-    print('The masculine genitive form is "eines". You entered "' + masculine_genitive + '".')
-    score -= 1.0
-
-  if masculine_dative != 'einem':
-    print('The masculine dative form is "einem". You entered "' + masculine_dative + '".')
-    score -= 1.0
-
-  if masculine_accusative != 'einen':
-    print('The masculine accusative form is "einen". You entered "' + masculine_accusative + '".')
-    score -= 1.0
-
-  if feminine_nominative != 'eine':
-    print('The feminine nominative form is "eine". You entered "' + feminine_nominative + '".')
-    score -= 1.0
-
-  if feminine_genitive != 'einer':
-    print('The feminine genitive form is "einer". You entered "' + feminine_genitive + '".')
-    score -= 1.0
-
-  if feminine_dative != 'einer':
-    print('The feminine dative form is "einer". You entered "' + feminine_dative + '".')
-    score -= 1.0
-
-  if feminine_accusative != 'eine':
-    print('The feminine accusative form is "eine". You entered "' + feminine_accusative + '".')
-    score -= 1.0
-
-  if neuter_nominative != 'ein':
-    print('The neuter nominative form is "ein". You entered "' + neuter_nominative + '".')
-    score -= 1.0
-
-  if neuter_genitive != 'eines':
-    print('The neuter genitive form is "eines". You entered "' + neuter_genitive + '".')
-    score -= 1.0
-
-  if neuter_dative != 'einem':
-    print('The neuter dative form is "einem". You entered "' + neuter_dative + '".')
-    score -= 1.0
-
-  if neuter_accusative != 'ein':
-    print('The neuter accusative form is "ein". You entered "' + neuter_accusative + '".')
-    score -= 1.0
-
-  print ('\n')
-  print('You got ' + str(int(score)) + ' correct out of 12, for a score of ' + str(int(score/12.0 * 100)) + '%.')
