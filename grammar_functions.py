@@ -452,3 +452,177 @@ def test_present_tense_werden():
 
   print ('\n')
   print('You got ' + str(int(score)) + ' correct out of 7, for a score of ' + str(int(score/7.0 * 100)) + '%.')
+
+def test_adjective_strong_endings():
+  masculine_nominative = input('Enter the strong masculine nominative form of the adjective "viel-": ')
+  masculine_genitive = input('. . . strong masculine genitive form of the adjective "viel-": ')
+  masculine_dative = input('. . . strong masculine dative form . . . "viel-": ')
+  masculine_accusative = input('. . . masculine accusative form . . . "viel-": ')
+  feminine_nominative = input('. . . feminine nominative . . . "viel-": ')
+  feminine_genitive = input('. . . feminine genitive . . .: ')
+  feminine_dative = input('feminine dative: ')
+  feminine_accusative = input('feminine accusative: ')
+  neuter_nominative = input('neuter nominative: ')
+  neuter_genitive = input('neuter genitive: ')
+  neuter_dative = input('neuter dative: ')
+  neuter_accusative = input('neuter accusative: ')
+  plural_nominative = input('plural nominative: ')
+  plural_genitive = input('plural genitive: ')
+  plural_dative = input('plural dative: ')
+  plural_accusative = input('plural accusative: ')
+
+  score = 16.0
+
+  if masculine_nominative != 'vieler':
+    print('The strong masculine nominative form of "viel-" is "vieler". You entered "' + masculine_nominative + '".')
+    score -= 1
+
+  if masculine_genitive != 'vielen':
+    print('The strong masculine genitive form of "viel-" is "vielen". You entered "' + masculine_genitive + '".')
+    score -= 1
+
+  if masculine_dative != 'vielem':
+    print('The strong masculine dative form of "viel-" is "vielem". You entered "' + masculine_dative + '".')
+    score -= 1
+
+  if masculine_accusative != 'vielen':
+    print('The strong masculine accusative form of "viel-" is "vielen". You entered "' + masculine_accusative + '".')
+    score -= 1
+
+  if feminine_nominative != 'viele':
+    print('The strong feminine nominative form of "viel-" is "viele". You entered "' + feminine_nominative + '".')
+    score -= 1
+
+  if feminine_genitive != 'vieler':
+    print('The strong feminine genitive form of "viel-" is "vieler". You entered "' + feminine_genitive + '".')
+    score -= 1
+
+  if feminine_dative != 'vieler':
+    print('The strong feminine dative form of "viel-" is "vieler". You entered "' + feminine_dative + '".')
+    score -= 1
+
+  if feminine_accusative != 'viele':
+    print('The strong feminine accusative form of "viel-" is "viele". You entered "' + feminine_accusative + '".')
+    score -= 1
+
+  if neuter_nominative != 'vieles':
+    print('The strong neuter nominative form of "viel-" is "vieles". You entered "' + neuter_nominative + '".')
+    score -= 1
+
+  if neuter_genitive != 'vielen':
+    print('The strong neuter genitive form of "viel-" is "vielen". You entered "' + neuter_genitive + '".')
+    score -= 1
+
+  if neuter_dative != 'vielem':
+    print('The strong neuter dative form of "viel-" is "vielem". You entered "' + neuter_dative + '".')
+    score -= 1
+
+  if neuter_accusative != 'vieles':
+    print('The strong neuter accusative form of "viel-" is "vieles". You entered "' + neuter_accusative + '".')
+    score -= 1
+
+  if plural_nominative != 'viele':
+    print('The strong plural nominative form of "viel-" is "viele". You entered "' + plural_nominative + '".')
+    score -= 1
+
+  if plural_genitive != 'vieler':
+    print('The strong plural genitive form of "viel-" is "vieler". You entered "' + plural_genitive + '".')
+    score -= 1
+
+  if plural_dative != 'vielen':
+    print('The strong plural dative form of "viel-" is "vielen". You entered "' + plural_dative + '".')
+    score -= 1
+
+  if plural_accusative != 'viele':
+    print('The strong plural accusative form of "viel-" is "viele". You entered "' + plural_accusative + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 16, for a score of ' + str(int(score/16.0 * 100)) + '%.')
+
+def test_adjective_weak_endings():
+  masculine_nominative = input('Enter the weak masculine nominative form of the adjective "viel-": ')
+  masculine_genitive = input('. . . weak masculine genitive form of the adjective "viel-": ')
+  masculine_dative = input('. . . weak masculine dative form . . . "viel-": ')
+  masculine_accusative = input('. . . masculine accusative form . . . "viel-": ')
+  feminine_nominative = input('. . . feminine nominative . . . "viel-": ')
+  feminine_genitive = input('. . . feminine genitive . . .: ')
+  feminine_dative = input('feminine dative: ')
+  feminine_accusative = input('feminine accusative: ')
+  neuter_nominative = input('neuter nominative: ')
+  neuter_genitive = input('neuter genitive: ')
+  neuter_dative = input('neuter dative: ')
+  neuter_accusative = input('neuter accusative: ')
+  plural_nominative = input('plural nominative: ')
+  plural_genitive = input('plural genitive: ')
+  plural_dative = input('plural dative: ')
+  plural_accusative = input('plural accusative: ')
+
+  score = 16.0
+
+  if masculine_nominative != 'viele':
+    print('The weak masculine nominative form of "viel-" is "viele". You entered "' + masculine_nominative + '".')
+    score -= 1
+
+  if masculine_genitive != 'vielen':
+    print('The weak masculine genitive form of "viel-" is "vielen". You entered "' + masculine_genitive + '".')
+    score -= 1
+
+  if masculine_dative != 'vielen':
+    print('The weak masculine dative form of "viel-" is "vielen". You entered "' + masculine_dative + '".')
+    score -= 1
+
+  if masculine_accusative != 'vielen':
+    print('The weak masculine accusative form of "viel-" is "vielen". You entered "' + masculine_accusative + '".')
+    score -= 1
+
+  if feminine_nominative != 'viele':
+    print('The weak feminine nominative form of "viel-" is "viele". You entered "' + feminine_nominative + '".')
+    score -= 1
+
+  if feminine_genitive != 'vielen':
+    print('The weak feminine genitive form of "viel-" is "vielen". You entered "' + feminine_genitive + '".')
+    score -= 1
+
+  if feminine_dative != 'vielen':
+    print('The weak feminine dative form of "viel-" is "vielen". You entered "' + feminine_dative + '".')
+    score -= 1
+
+  if feminine_accusative != 'viele':
+    print('The weak feminine accusative form of "viel-" is "viele". You entered "' + feminine_accusative + '".')
+    score -= 1
+
+  if neuter_nominative != 'viele':
+    print('The weak neuter nominative form of "viel-" is "viele". You entered "' + neuter_nominative + '".')
+    score -= 1
+
+  if neuter_genitive != 'vielen':
+    print('The weak neuter genitive form of "viel-" is "vielen". You entered "' + neuter_genitive + '".')
+    score -= 1
+
+  if neuter_dative != 'vielen':
+    print('The weak neuter dative form of "viel-" is "vielen". You entered "' + neuter_dative + '".')
+    score -= 1
+
+  if neuter_accusative != 'viele':
+    print('The weak neuter accusative form of "viel-" is "viele". You entered "' + neuter_accusative + '".')
+    score -= 1
+
+  if plural_nominative != 'vielen':
+    print('The weak plural nominative form of "viel-" is "vielen". You entered "' + plural_nominative + '".')
+    score -= 1
+
+  if plural_genitive != 'vielen':
+    print('The weak plural genitive form of "viel-" is "vielen". You entered "' + plural_genitive + '".')
+    score -= 1
+
+  if plural_dative != 'vielen':
+    print('The weak plural dative form of "viel-" is "vielen". You entered "' + plural_dative + '".')
+    score -= 1
+
+  if plural_accusative != 'vielen':
+    print('The weak plural accusative form of "viel-" is "vielen". You entered "' + plural_accusative + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 16, for a score of ' + str(int(score/16.0 * 100)) + '%.')

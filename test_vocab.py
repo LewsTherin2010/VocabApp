@@ -14,6 +14,7 @@ def test_grammar():
   while grammar_test_input != '99':
 
     print('******************** TEST GRAMMAR MENU *********************')
+    print('0. Adjectives')
     print('1. Declension of definite article')
     print('2. Declension of indefinite article')
     print('3. Past tense of weak verbs')
@@ -25,6 +26,8 @@ def test_grammar():
       
     grammar_test_input = input()
 
+    if grammar_test_input == '0':
+      test_adjectives()
     if grammar_test_input == '1':
       test_definite_article()
     if grammar_test_input == '2':
@@ -37,6 +40,22 @@ def test_grammar():
       test_haben()
     if grammar_test_input == '6':
       test_werden()
+
+def test_adjectives():
+  test_adjectives_input = -1
+  while test_adjectives_input != '99':
+    print('******************* TEST ADJECTIVES MENU *******************')
+    print('1. Strong endings')
+    print('2. Weak endings')
+    print('99. Go back')
+    print('************************************************************')
+
+    test_adjectives_input = input()
+
+    if test_adjectives_input == '1':
+      test_adjective_strong_endings()
+    if test_adjectives_input == '2':
+      test_adjective_weak_endings()      
 
 def test_sein():
   test_sein_input = -1
@@ -84,7 +103,7 @@ def test_werden():
     if test_werden_input == '1':
       test_present_tense_werden()
     if test_werden_input == '2':
-      test_past_werden_haben()
+      test_past_tense_werden()
 
 # *******************************************************************
 # *************************** MAIN LOOP *****************************
