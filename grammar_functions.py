@@ -200,6 +200,49 @@ def test_weak_verb_past_tense():
   print ('\n')
   print('You got ' + str(int(score)) + ' correct out of 7, for a score of ' + str(int(score/7.0 * 100)) + '%.')
 
+def test_weak_verb_present_tense():
+
+  first_singular = input('Enter the first person singular form of "leben": ')
+  second_singular = input('... the second person singular form of "leben": ')
+  third_singular = input('... third person singular ...: ')
+  first_plural = input('first person plural: ')
+  second_plural = input('second person plural: ')
+  third_plural = input('third person plural: ')  
+  second_formal = input('second person formal: ')
+
+  score = 7.0
+
+  if first_singular != 'lebe':
+    print('The first person singular past of "leben" is "lebe". You entered "' + first_singular + '".')
+    score -= 1
+
+  if second_singular != 'lebst':
+    print('The second person singular past of "leben" is "lebst". You entered "' + second_singular + '".')
+    score -= 1
+
+  if third_singular != 'lebt':
+    print('The third person singular past of "leben" is "lebt". You entered "' + third_singular + '".')
+    score -= 1
+
+  if first_plural != 'leben':
+    print('The first person plural past of "leben" is "leben". You entered "' + first_plural + '".')
+    score -= 1
+
+  if second_plural != 'lebt':
+    print('The second person plural past of "leben" is "lebt". You entered "' + second_plural + '".')
+    score -= 1
+
+  if third_plural != 'leben':
+    print('The third person plural past of "leben" is "leben". You entered "' + third_plural + '".')
+    score -= 1
+
+  if second_formal != 'leben':
+    print('The second person formal past of "leben" is "leben". You entered "' + second_formal + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 7, for a score of ' + str(int(score/7.0 * 100)) + '%.')
+
 def test_past_tense_sein():
   first_singular = input('Enter the first person singular past form of "sein": ')
   second_singular = input('... the second person singular past form of "sein": ')
@@ -622,6 +665,207 @@ def test_adjective_weak_endings():
 
   if plural_accusative != 'vielen':
     print('The weak plural accusative form of "viel-" is "vielen". You entered "' + plural_accusative + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 16, for a score of ' + str(int(score/16.0 * 100)) + '%.')
+
+def test_first_person_personal_pronoun():
+  nominative_singular = input('Enter the first person nominative singular personal pronoun: ')
+  genitive_singular = input('Enter the first person genitive singular . . .: ')
+  dative_singular = input('. . . first person dative singular . . .: ')
+  accusative_singular = input('First person accusative singular: ')
+  nominative_plural = input('First person nominative plural: ')
+  genitive_plural = input('First person genitive plural: ')
+  dative_plural = input('First person dative plural: ')
+  accusative_plural = input('First person accusative plural: ')
+
+  score = 8.0
+
+  if nominative_singular != 'ich':
+    print('The first person nominative singular personal pronoun is "ich". You entered "' + nominative_singular + '".')
+    score -= 1
+
+  if genitive_singular != 'meiner':
+    print('The first person genitive singular personal pronoun is "meiner". You entered "' + genitive_singular + '".')
+    score -= 1
+
+  if dative_singular != 'mir':
+    print('The first person dative singular personal pronoun is "mir". You entered "' + dative_singular + '".')
+    score -= 1
+
+  if accusative_singular != 'mich':
+    print('The first person accusative singular personal pronoun is "mich". You entered "' + accusative_singular + '".')
+    score -= 1
+
+  if nominative_plural != 'wir':
+    print('The first person nominative plural personal pronoun is "wir". You entered "' + nominative_plural + '".')
+    score -= 1
+
+  if genitive_plural != 'unser':
+    print('The first person genitive plural personal pronoun is "unser". You entered "' + genitive_plural + '".')
+    score -= 1
+
+  if dative_plural != 'uns':
+    print('The first person dative plural personal pronoun is "uns". You entered "' + dative_plural + '".')
+    score -= 1
+
+  if accusative_plural != 'uns':
+    print('The first person accusative plural personal pronoun is "uns". You entered "' + accusative_plural + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 8, for a score of ' + str(int(score/8.0 * 100)) + '%.')
+
+def test_second_person_personal_pronoun():
+  nominative_singular = input('Enter the second person nominative singular personal pronoun: ')
+  genitive_singular = input('Enter the second person genitive singular . . .: ')
+  dative_singular = input('. . . second person dative singular . . .: ')
+  accusative_singular = input('Second person accusative singular: ')
+  nominative_plural = input('Second person nominative plural: ')
+  genitive_plural = input('Second person genitive plural: ')
+  dative_plural = input('Second person dative plural: ')
+  accusative_plural = input('Second person accusative plural: ')
+  nominative_formal = input('Second person nominative formal: ')
+  genitive_formal = input('Second person genitive formal: ')
+  dative_formal = input('Second person dative formal: ')
+  accusative_formal = input('Second person accusative formal: ')
+
+  score = 12.0
+
+  if nominative_singular != 'du':
+    print('The second person nominative singular personal pronoun is "du". You entered "' + nominative_singular + '".')
+    score -= 1
+
+  if genitive_singular != 'deiner':
+    print('The second person genitive singular personal pronoun is "deiner". You entered "' + genitive_singular + '".')
+    score -= 1
+
+  if dative_singular != 'dir':
+    print('The second person dative singular personal pronoun is "dir". You entered "' + dative_singular + '".')
+    score -= 1
+
+  if accusative_singular != 'dich':
+    print('The second person accusative singular personal pronoun is "dich". You entered "' + accusative_singular + '".')
+    score -= 1
+
+  if nominative_plural != 'ihr':
+    print('The second person nominative plural personal pronoun is "ihr". You entered "' + nominative_plural + '".')
+    score -= 1
+
+  if genitive_plural != 'euer':
+    print('The second person genitive plural personal pronoun is "euer". You entered "' + genitive_plural + '".')
+    score -= 1
+
+  if dative_plural != 'euch':
+    print('The second person dative plural personal pronoun is "euch". You entered "' + dative_plural + '".')
+    score -= 1
+
+  if accusative_plural != 'euch':
+    print('The second person accusative plural personal pronoun is "euch". You entered "' + accusative_plural + '".')
+    score -= 1
+
+  if nominative_formal != 'Sie':
+    print('The second person nominative formal personal pronoun is "Sie". You entered "' + nominative_formal + '".')
+    score -= 1
+
+  if genitive_formal != 'Ihrer':
+    print('The second person genitive formal personal pronoun is "Ihrer". You entered "' + genitive_formal + '".')
+    score -= 1
+
+  if dative_formal != 'Ihnen':
+    print('The second person dative formal personal pronoun is "Ihnen". You entered "' + dative_formal + '".')
+    score -= 1
+
+  if accusative_formal != 'Sie':
+    print('The second person accusative formal personal pronoun is "Sie". You entered "' + accusative_formal + '".')
+    score -= 1
+
+  print ('\n')
+  print('You got ' + str(int(score)) + ' correct out of 12, for a score of ' + str(int(score/12.0 * 100)) + '%.')
+
+def test_third_person_personal_pronoun():
+  masculine_nominative = input('Enter the third person masculine nominative personal pronoun: ')
+  masculine_genitive = input('Enter the third person masculine genitive . . .: ')
+  masculine_dative = input('. . . third person masculine dative . . .: ')
+  masculine_accusative = input('Third person masculine accusative: ')
+  feminine_nominative = input('Third person feminine nominative: ')
+  feminine_genitive = input('Third person feminine genitive: ')
+  feminine_dative = input('Third person feminine dative: ')
+  feminine_accusative = input('Third person feminine accusative: ')
+  neuter_nominative = input('Third person neuter nominative: ')
+  neuter_genitive = input('Third person neuter genitive: ')
+  neuter_dative = input('Third person neuter dative: ')
+  neuter_accusative = input('Third person neuter accusative: ')
+  plural_nominative = input('Third person plural nominative: ')
+  plural_genitive = input('Third person plural genitive: ')
+  plural_dative = input('Third person plural dative: ')
+  plural_accusative = input('Third person plural accusative: ')
+
+  score = 16.0
+
+  if masculine_nominative != 'er':
+    print('The third person masculine nominative personal pronoun is "er". You entered "' + masculine_nominative + '".')
+    score -= 1
+
+  if masculine_genitive != 'seiner':
+    print('The third person masculine genitive personal pronoun is "seiner". You entered "' + masculine_genitive + '".')
+    score -= 1
+
+  if masculine_dative != 'ihm':
+    print('The third person masculine dative personal pronoun is "ihm". You entered "' + masculine_dative + '".')
+    score -= 1
+
+  if masculine_accusative != 'ihn':
+    print('The third person masculine accusative personal pronoun is "ihn". You entered "' + masculine_accusative + '".')
+    score -= 1
+
+  if feminine_nominative != 'sie':
+    print('The third person feminine nominative personal pronoun is "sie". You entered "' + feminine_nominative + '".')
+    score -= 1
+
+  if feminine_genitive != 'ihrer':
+    print('The third person feminine genitive personal pronoun is "ihrer". You entered "' + feminine_genitive + '".')
+    score -= 1
+
+  if feminine_dative != 'ihr':
+    print('The third person feminine dative personal pronoun is "ihr". You entered "' + feminine_dative + '".')
+    score -= 1
+
+  if feminine_accusative != 'sie':
+    print('The third person feminine accusative personal pronoun is "sie". You entered "' + feminine_accusative + '".')
+    score -= 1
+
+  if neuter_nominative != 'es':
+    print('The third person neuter nominative personal pronoun is "es". You entered "' + neuter_nominative + '".')
+    score -= 1
+
+  if neuter_genitive != 'seiner':
+    print('The third person neuter genitive personal pronoun is "seiner". You entered "' + neuter_genitive + '".')
+    score -= 1
+
+  if neuter_dative != 'ihm':
+    print('The third person neuter dative personal pronoun is "ihm". You entered "' + neuter_dative + '".')
+    score -= 1
+
+  if neuter_accusative != 'es':
+    print('The third person neuter accusative personal pronoun is "es". You entered "' + neuter_accusative + '".')
+    score -= 1
+
+  if plural_nominative != 'sie':
+    print('The third person plural nominative personal pronoun is "sie". You entered "' + plural_nominative + '".')
+    score -= 1
+
+  if plural_genitive != 'ihrer':
+    print('The third person plural genitive personal pronoun is "ihrer". You entered "' + plural_genitive + '".')
+    score -= 1
+
+  if plural_dative != 'ihnen':
+    print('The third person plural dative personal pronoun is "ihnen". You entered "' + plural_dative + '".')
+    score -= 1
+
+  if plural_accusative != 'sie':
+    print('The third person plural accusative personal pronoun is "sie". You entered "' + plural_accusative + '".')
     score -= 1
 
   print ('\n')

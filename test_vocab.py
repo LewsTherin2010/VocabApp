@@ -15,12 +15,13 @@ def test_grammar():
 
     print('******************** TEST GRAMMAR MENU *********************')
     print('0. Adjectives')
-    print('1. Declension of definite article')
-    print('2. Declension of indefinite article')
-    print('3. Past tense of weak verbs')
+    print('1. Definite article')
+    print('2. Indefinite article')
+    print('3. Weak Verbs')
     print('4. "sein"')
     print('5. "haben"')
     print('6. "werden"')
+    print('7. Personal pronoun')
     print('99. Go back')
     print('************************************************************')
       
@@ -33,13 +34,50 @@ def test_grammar():
     if grammar_test_input == '2':
       test_indefinite_article()
     if grammar_test_input == '3':
-      test_weak_verb_past_tense()
+      test_weak_verbs()
     if grammar_test_input == '4':
       test_sein()
     if grammar_test_input == '5':
       test_haben()
     if grammar_test_input == '6':
       test_werden()
+    if grammar_test_input == '7':
+      test_personal_pronoun()
+
+def test_weak_verbs():
+  test_weak_verbs_input = -1
+  while test_weak_verbs_input != '99':
+
+    print('****************** TEST WEAK VERBS MENU *******************')
+    print('0. Present tense')
+    print('1. Past tense')
+    print('99. Go back')
+    print('***********************************************************')
+  
+    test_weak_verbs_input = input()
+
+    if test_weak_verbs_input == '0':
+      test_weak_verb_present_tense()
+    if test_weak_verbs_input == '1':
+      test_weak_verb_past_tense()
+
+def test_personal_pronoun():
+  test_personal_pronoun_input = -1
+  while test_personal_pronoun_input != '99':
+    print('******************* TEST ADJECTIVES MENU *******************')
+    print('1. First person')
+    print('2. Second person')
+    print('3. Third person')
+    print('99. Go back')
+    print('************************************************************')
+    test_personal_pronoun_input = input()
+
+    if test_personal_pronoun_input == '1':
+      test_first_person_personal_pronoun()
+    if test_personal_pronoun_input == '2':
+      test_second_person_personal_pronoun()
+    if test_personal_pronoun_input == '3':
+      test_third_person_personal_pronoun()
 
 def test_adjectives():
   test_adjectives_input = -1
@@ -123,7 +161,9 @@ while user_input != '9':
   if user_input == '1':
     prompt_user_for_new_entry()
   elif user_input == '2':
-    test_words()
+    words_to_test = int(input('How many words would you like to test? '))
+    
+    test_words(words_to_test)
   elif user_input == '3':
     summarize_vocabulary()
   elif user_input == '4':

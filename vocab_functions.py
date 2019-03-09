@@ -173,6 +173,7 @@ def summarize_vocabulary():
   local_copy = get_local_copy_of_dictionary()
 
   day_dict = {}
+  words_to_test_by_day_dict = {}
   words_to_test = 0
   words_to_test_tomorrow = 0
   words_to_test_the_day_after = 0
@@ -183,10 +184,12 @@ def summarize_vocabulary():
     for definition in local_copy[entry]:
       if definition[3] not in day_dict:
         day_dict[definition[3]] = 0
+        words_to_test_by_day_dict[definition[3]] = 0
 
       # Get actual words to test right now
       if int(float(definition[2])) + (one_day * int(definition[3])) < time.time():
         words_to_test += 1
+        words_to_test_by_day_dict[definition[3]] += 1
 
       # Get actual words to test tomorrow (Not actually this simple.)
       if int(float(definition[2])) + (one_day * int(definition[3])) < time.time() + one_day:
@@ -198,16 +201,22 @@ def summarize_vocabulary():
 
       day_dict[definition[3]] += 1
 
-  # Get total number
   total_number = 0
+  average_words_tested_per_day = 0.0
+  highest_day = 0
   for day in day_dict:
+
+    # Get total number
     total_number += day_dict[day]
 
-  # Get average words tested per day
-  average_words_tested_per_day = 0.0
-  for day in day_dict:
+    # Get average words tested per day
     denominator = (float(day) if int(day) != 0 else 1.0)
     average_words_tested_per_day += float(day_dict[day])/denominator
+
+    # Get highest day
+    if int(day) > highest_day:
+      highest_day = int(day)
+
 
   # Print summary
   print('\n------------------------------------')
@@ -217,8 +226,10 @@ def summarize_vocabulary():
   print('Actual words to test tomorrow is ' + str(words_to_test_tomorrow) + '.')
   print('Actual words to test the day after is ' + str(words_to_test_the_day_after) + '.\n')
 
-  print('Days','\t', '# of words')
+  print('Days','\t', '# of words','\t', 'of which # to test')
 
-  for day in sorted(day_dict):
-    print (day, '\t', day_dict[day])
+
+  # Display
+  for day in range(0, highest_day + 1):
+    print (day, '\t', day_dict[str(day)], '\t\t', words_to_test_by_day_dict[str(day)])
   print('------------------------------------')
